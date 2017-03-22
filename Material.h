@@ -7,7 +7,6 @@ class Material
 
   public:
   uint GetId(){return Id;}; // get material Id
-  virtual ~Material(); // write proper destructor for derived class
 };
 
 class Mat1 : public Material
@@ -28,7 +27,6 @@ class Mat1 : public Material
   void CalcG(); // calculate G when only E and Nu is provided
   void CalcNu(); // calculate Nu when only E and G is provided
 
-
   public:
   Mat1(uint id, double e, double gnu, double ro=0, double a=0, double tref=0, double ge=0, double st=0, double sc=0, double ss=0);
 
@@ -42,8 +40,5 @@ class Mat1 : public Material
   double GetSt(){return St;};
   double GetSc(){return Sc;};
   double GetSs(){return Ss;};
-
-  ~Mat1();
-
 }
 

@@ -7,9 +7,9 @@ class Propertie
   Material* Mat;
 
   public:
-  uint GetId(); // get Pid
-  Material* GetMaterial(); // get material
-  virtual ~Propertie(); // write proper destructor for derived class
+  ElementType GetType(){return type;}; // get prop type
+  uint GetId(){return Id;}; // get Pid
+  Material GetMaterial(){return *Mat;}; // get material
 }
 
 class Psolid : public Propertie
@@ -17,10 +17,7 @@ class Psolid : public Propertie
   protected:
 
   public:
-  Psolid(uint id, Material* mat);
-
-  ~Psolid();
-
+  Psolid(uint id, Material mat);
 };
 
 class Pshell : public Propertie
@@ -34,21 +31,18 @@ class Pshell : public Propertie
   double Nsm;
   double Z1;
   double Z2;
-  Material* Mid4;
 
   public:
-  Pshell(uint id, Material* mat, double T);
-  double GetT();
-  Material* GetMid2();
-  double GetiT();
-  Material* GetMid3();
-  double GetTs();
-  double GetNsm();
-  double GetZ1();
-  double GetZ2();
-  Material* GetMid4();
-
-  ~Pshell();
+  Pshell(uint id, Material mat, double t, double nsm=0, double z1=0, double z2=0);
+  Pshell(uint id, Material mat, double t, Material mid2, Material mid3, double it=1.0, double ts=0.8333, double nsm=0, double z1=0, double z2=0);
+  double GetT(){return T;};
+  Material GetMid2(){return *Mid2;};
+  double GetiT(){return It;};
+  Material GetMid3(){return *Mid3;};
+  double GetTs(){return Ts;};
+  double GetNsm(){return Nsm;};
+  double GetZ1(){return Z1;};
+  double GetZ2(){return Z2;};
 };
 
 class Pbar : public Propertie // currently CBEAM supported as CBAR
@@ -60,26 +54,19 @@ class Pbar : public Propertie // currently CBEAM supported as CBAR
   double I2;
   double I12;
   double J;
-  double NSM;
-  double C[2];
-  double D[2];
-  double E[2];
-  double F[2];
-  double K[2];
+  double Nsm;
 
   public:
-  Pbar(uint id, Material* mat, double diam)
-  Pbar(uint id, Material* mat, double a, double i1, double i2, double j, double nsm)
+  Pbar(bool cbar, uint id, Material* mat, double diam); 
+  Pbar(bool cbar, uint id, Material* mat, double a, double i1, double i2, double j=0, double nsm=0);
 
-  double GetDiam();
-  double GetA();
-  double GetI1();
-  double GetI2();
-  double GetJ();
-  double GetNSM();
-  // more soon
-
-  ~Pbar();
+  double GetDiam(){return Diam;};
+  double GetA(){return A;};
+  double GetI1(){return I1;};
+  double GetI2(){return I2;};
+  double GetI12(){return I12;};
+  double GetJ(){return J;};
+  double GetNsm(){return Nsm;};
 };
 
 class PboltNF
@@ -108,10 +95,6 @@ class PboltNF
 
   public:
   PboltNF();
-  ~PboltNF();
-
-
-
 };
 
 
