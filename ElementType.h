@@ -1,0 +1,1 @@
+enum ElementType {SOLID, SHELL, MEMBR, RIGID, CBAR, CBEAM};
