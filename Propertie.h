@@ -17,7 +17,7 @@ class Psolid : public Propertie
   protected:
 
   public:
-  Psolid(uint id, Material mat);
+  Psolid(uint& id, Material& mat);
 };
 
 class Pshell : public Propertie
@@ -33,8 +33,8 @@ class Pshell : public Propertie
   double Z2;
 
   public:
-  Pshell(uint id, Material mat, double t, double nsm=0, double z1=0, double z2=0);
-  Pshell(uint id, Material mat, double t, Material mid2, Material mid3, double it=1.0, double ts=0.8333, double nsm=0, double z1=0, double z2=0);
+  Pshell(uint& id, Material& mat, double& t, double& nsm=0, double& z1=0, double& z2=0);
+  Pshell(uint& id, Material& mat, double& t, Material& mid2, Material& mid3, double& it=1.0, double& ts=0.8333, double& nsm=0, double& z1=0, double& z2=0);
   double GetT(){return T;};
   Material GetMid2(){return *Mid2;};
   double GetiT(){return It;};
@@ -57,8 +57,8 @@ class Pbar : public Propertie // currently CBEAM supported as CBAR
   double Nsm;
 
   public:
-  Pbar(bool cbar, uint id, Material* mat, double diam); 
-  Pbar(bool cbar, uint id, Material* mat, double a, double i1, double i2, double j=0, double nsm=0);
+  Pbar(bool& cbar, uint& id, Material& mat, double& diam); 
+  Pbar(bool& cbar, uint& id, Material& mat, double& a, double& i1, double& i2, double& j=0, double& nsm=0);
 
   double GetDiam(){return Diam;};
   double GetA(){return A;};

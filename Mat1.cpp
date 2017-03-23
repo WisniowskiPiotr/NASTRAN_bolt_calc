@@ -19,7 +19,7 @@ void Mat1::CalcNu(){ // calculate Nu when only E and G is provided
     throw "Calculated Poisons ratio out of range" ; // get better exception handling
 }; 
 
-Mat1::Mat1(uint id, double e, double gnu, double ro=0, double a=0, double tref=0, double ge=0, double st=0, double sc=0, double ss=0){
+Mat1::Mat1(uint& id, double& e, double& gnu, double& ro=0, double& a=0, double& tref=0, double& ge=0, double& st=0, double& sc=0, double& ss=0){
   // check input
   if(e<=0 || gnu<=-1 || ro<0 || a<0 || ge<0 || st<0 || sc<0 || ss<0)
     throw "Wrong material parapeters"

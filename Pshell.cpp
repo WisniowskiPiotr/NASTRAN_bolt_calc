@@ -1,6 +1,6 @@
 
 
-Pshell::Pshell(uint id, Material mat, double t, double nsm=0, double z1=0, double z2=0){
+Pshell::Pshell(uint& id, Material& mat, double& t, double& nsm=0, double& z1=0, double& z2=0){
   // check input
   if(t<0 || nsm<0)
     throw "Wrong membr parapeters"
@@ -18,7 +18,7 @@ Pshell::Pshell(uint id, Material mat, double t, double nsm=0, double z1=0, doubl
   Mid3=null;
 };
 
-Pshell::Pshell(uint id, Material mat, double t, Material mid2, Material mid3, double it=1.0, double ts=0.8333, double nsm=0, double z1=0, double z2=0)){
+Pshell::Pshell(uint& id, Material& mat, double& t, Material& mid2, Material& mid3, double& it=1.0, double& ts=0.8333, double& nsm=0, double& z1=0, double& z2=0)){
   // check input
   if(t<0 || nsm<0)
     throw "Wrong membr parapeters"

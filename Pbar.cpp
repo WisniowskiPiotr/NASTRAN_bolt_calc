@@ -1,7 +1,7 @@
 
 
 
-Pbar::Pbar(bool cbar, uint id, Material* mat, double diam){
+Pbar::Pbar(bool& cbar, uint& id, Material& mat, double& diam){
   // check input
   if(diam<=0)
     throw "Wrong diam parapeters"
@@ -18,7 +18,7 @@ Pbar::Pbar(bool cbar, uint id, Material* mat, double diam){
   Nsm=0;
 }; 
 
-Pbar::Pbar(bool cbar, uint id, Material* mat, double a, double i1, double i2, double j=0, double nsm=0){
+Pbar::Pbar(bool& cbar, uint& id, Material& mat, double& a, double& i1, double& i2, double& j=0, double& nsm=0){
   // check input
   if(a<0 || i1<0 || i2<0 || i12<0 || j<0 || nms<0)
     throw "Wrong diam parapeters"

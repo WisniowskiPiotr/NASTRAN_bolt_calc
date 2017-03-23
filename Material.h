@@ -28,7 +28,7 @@ class Mat1 : public Material
   void CalcNu(); // calculate Nu when only E and G is provided
 
   public:
-  Mat1(uint id, double e, double gnu, double ro=0, double a=0, double tref=0, double ge=0, double st=0, double sc=0, double ss=0);
+  Mat1(uint& id, double& e, double& gnu, double& ro=0, double& a=0, double& tref=0, double& ge=0, double& st=0, double& sc=0, double& ss=0);
 
   double GetE(){return E;};
   double GetG(){return G;};
